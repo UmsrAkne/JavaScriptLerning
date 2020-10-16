@@ -35,7 +35,7 @@ if (false) { // 変数を定義する。
 // ****************************************
 
 // ****************************************
-if (true) { //条件分岐
+if (false) { //条件分岐
 
     // 見たところ、ifブロック内で宣言された変数は、そのブロック内のみ有効な模様（当然か）
     const answer = window.prompt("ヘルプを見ますか？");
@@ -48,4 +48,27 @@ if (true) { //条件分岐
     } else {
         window.alert("yesかnoで答えてください");
     }
+}
+
+if (true) { // 数当てゲーム
+    // 乱数生成コード。 Math.random() は 0 以上 1 未満の値を返す
+    const number = Math.floor(Math.random() * 6);
+    const answer = parseInt(window.prompt("数当てゲーム。 0-5の数字を入力します"));
+
+    let message;
+    if (answer === number) {
+        message = "正解";
+    } else if (answer < number) {
+        message = "もっと大きい";
+    } else if (answer > number) {
+        message = "もっと小さい";
+    } else {
+        message = "0-5の数字を入力してください";
+    }
+
+    window.alert(message);
+
+    // "===" が等しい "!==" が等しくない。後者はあまり見慣れなかったので注意
+    // parseInt() で変換失敗した場合は、"NaN" が返却される。
+    // "NaN" の性質は、概ね他の言語と同じ模様。
 }
