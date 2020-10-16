@@ -94,3 +94,19 @@ if (false) { // 論理演算子
     // 現状、20時のため、一番上のブロックを通過する。
 
 }
+
+// 関数を定義する
+// 引数にも戻り値にも型宣言が無いのが不安。
+
+function total(price) {
+    const tax = 0.1;
+    return price + price * tax;
+}
+
+if (false) {
+    // 消費税 10% この書籍は新しい
+    console.log("コーヒーメーカーの値段は" + total(8000) + "円(税込みです)");
+
+    // index.html output 要素を書き換える
+    document.getElementById("output").textContent = "コーヒーメーカーの値段は" + total(8000) + "円（税込みです）";
+}
