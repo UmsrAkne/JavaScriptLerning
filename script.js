@@ -50,7 +50,7 @@ if (false) { //条件分岐
     }
 }
 
-if (true) { // 数当てゲーム
+if (false) { // 数当てゲーム
     // 乱数生成コード。 Math.random() は 0 以上 1 未満の値を返す
     const number = Math.floor(Math.random() * 6);
     const answer = parseInt(window.prompt("数当てゲーム。 0-5の数字を入力します"));
@@ -71,4 +71,26 @@ if (true) { // 数当てゲーム
     // "===" が等しい "!==" が等しくない。後者はあまり見慣れなかったので注意
     // parseInt() で変換失敗した場合は、"NaN" が返却される。
     // "NaN" の性質は、概ね他の言語と同じ模様。
+}
+
+if (false) { // 論理演算子
+    // 仕様に沿ったプログラムを組むことで論理演算子を学習する。以下仕様
+
+    // 19時以降21時までは「お弁当30%off」
+    // 9時台か15時台なら「お弁当1個おまけ」
+    // それ以外なら「お弁当はいかがですか」
+
+    // このお店潰れそう。
+
+    const hour = new Date().getHours();
+    if (hour >= 19 && hour < 21) {
+        window.alert("お弁当30%off");
+    } else if (hour === 9 || hour === 15) {
+        window.alert("お弁当１個おまけ");
+    } else {
+        window.alert("お弁当はいかがですか");
+    }
+
+    // 現状、20時のため、一番上のブロックを通過する。
+
 }
