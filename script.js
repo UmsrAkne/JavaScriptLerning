@@ -110,3 +110,44 @@ if (false) {
     // index.html output 要素を書き換える
     document.getElementById("output").textContent = "コーヒーメーカーの値段は" + total(8000) + "円（税込みです）";
 }
+
+// 普通のfizzBuzz
+// 写経
+function fizzBuzz1() {
+    function fizzBuzz(num) {
+        if (num % 3 === 0 && num % 5 === 0) {
+            return "fizzbuzz";
+        } else if (num % 3 === 0) {
+            return "fizz";
+        } else if (num % 5 === 0) {
+            return "buzz";
+        } else {
+            return num;
+        }
+    }
+
+    let i = 1;
+    while (i <= 30) {
+        console.log(fizzBuzz(i));
+        i += 1;
+    }
+}
+
+// 自前。やってること変わらない
+function fizzBuzz2() {
+    let i = 1;
+    while (i <= 30) {
+        let output = "";
+        if (i % 3 === 0) {
+            output += "fizz";
+        }
+
+        if (i % 5 === 0) {
+            output += "buzz";
+        }
+
+        console.log((output === "") ? i : output);
+        i += 1;
+    }
+}
+
