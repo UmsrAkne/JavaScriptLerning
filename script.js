@@ -151,3 +151,30 @@ function fizzBuzz2() {
     }
 }
 
+// 配列
+function arr() {
+    let ar1 = []; // 要素数０で初期化
+    let ar2 = ["element1", "element2", "element3"]; // 初期化時代入
+    let ar3 = ["element1", 1]; // 複数の型が同居可能。不安。
+
+    // ループによる取り出し for...of を使用する。of は初めて見る。
+    // 普通の for はまだテキストに出てきてない。jsには無い？
+    for (let item of ar2) {
+        // この書式はテンプレートリテラルと呼ぶ。
+        // ${}で囲まれた変数の中身、メソッドの返却値を取り出すことができる。
+        // その他、テンプレートリテラル内では改行が有効
+        const li =
+            `<li>
+                ${item}
+            </li>`;
+        document.getElementById("list").insertAdjacentHTML("beforeend", li);
+    }
+
+    // 配列の要素をいじるメソッド
+    // pop() 最後尾削除
+    // push(e) 最後尾追加
+    // shift() 先頭削除
+    // unshift(e) 先頭追加
+
+    // ActionScript の Array と同じなので問題ない。
+}
