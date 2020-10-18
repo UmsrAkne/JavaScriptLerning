@@ -167,6 +167,9 @@ function arr() {
             `<li>
                 ${item}
             </li>`;
+
+        // 第一引数は "beforebegin", "afterbegin", "beforeend", "afterend" のいずれか。
+        // 定数が定義されているクラスとかは無い。更に列挙型も無いらしい。不安しか無い。
         document.getElementById("list").insertAdjacentHTML("beforeend", li);
     }
 
