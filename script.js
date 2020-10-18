@@ -181,3 +181,36 @@ function arr() {
 
     // ActionScript の Array と同じなので問題ない。
 }
+
+// オブジェクト
+function obj() {
+    // オブジェクトの宣言、初期化
+    let object = { key1: "value", key2: "value2", key3: 100 };
+
+    // オブジェクトの宣言のみ
+    let initObject = {};
+
+    // vscode だと key の補完が可能っぽい。すごい
+    // 値へのアクセスはドット演算子か配列アクセス演算子。
+    console.log(object.key);
+    console.log(object["key2"]);
+
+    // 値の列挙は for in で行う
+    // テキストには for in はオブジェクト専用と書いてあるが、実際に試してみたところ配列にも使用可みたい。
+    // 一時変数名は p が一般的とのこと。for in 内では値を文字列から参照するのでドットアクセスは不可。
+    for (let p in object) {
+        // object の for in では変数の順序は不定。
+        console.log(`val = ${object[p]}`);
+        document.getElementById(p).textContent = object[p];
+    }
+
+    // オブジェクトにメソッドを格納。
+    // C# のデリゲートとかラムダ式みたいな特殊な記法ではなく、キーの後ろに通常のメソッド宣言と同様に記述する
+    let o = {
+        f: function () {
+            return "result";
+        }
+    };
+
+    console.log(o.f());
+}
