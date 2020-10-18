@@ -214,3 +214,22 @@ function obj() {
 
     console.log(o.f());
 }
+
+// 入力、イベント
+function input() {
+
+    // submit は送るの意味らしい。
+    // obsubmit は送信時に送出されるイベントとのこと
+    document.getElementById("form").onsubmit = function (event) {
+
+        // イベントをキャンセルする呪文。ここでは再読み込みをキャンセルする。
+        event.preventDefault();
+        console.log("クリックされました");
+
+        // .word は HTML上の <form>内、<input> の name属性の値
+        const search = document.getElementById("form").word.value;
+        document.getElementById("output").textContent = `${search}の検索中`;
+    };
+}
+
+input();
