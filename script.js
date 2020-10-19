@@ -232,4 +232,42 @@ function input() {
     };
 }
 
-input();
+// タイマー
+
+function dateTimer() {
+
+    // 第一引数に未来の時間を表す Date オブジェクトを受け取り、現在日時からその日時までの時間を、整数値を詰めた配列で取得します。
+    function countdown(due) {
+        const now = new Date();
+        const rest = due.getTime() - now.getTime();
+
+        const sec = Math.floor(rest / 1000) % 60;
+        const min = Math.floor(rest / 1000 / 60) % 60;
+        const hours = Math.floor(rest / 1000 / 60 / 60) % 24;
+        const days = Math.floor(rest / 1000 / 60 / 60 / 24);
+
+        return [days, hours, min, sec];
+    }
+
+    let goal = new Date();
+    goal.setHours(23);
+    goal.setMinutes(59);
+    goal.setSeconds(59);
+
+    function recalc() {
+        const counter = countdown(goal);
+        console.log(counter);
+        const time = `日付変更まで${counter[1]}時間${counter[2]}分${counter[3]}秒`
+        document.getElementById("timer").textContent = time;
+        refresh();
+    }
+
+    function refresh() {
+        // 1000ms 間隔で recalc　を実行
+        setTimeout(recalc, 1000);
+    }
+
+    recalc();
+}
+
+dateTimer();
