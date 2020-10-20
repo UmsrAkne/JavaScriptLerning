@@ -270,4 +270,30 @@ function dateTimer() {
     recalc();
 }
 
-dateTimer();
+function navi() {
+
+    // html の lang 属性で条件分岐
+    const lang = document.querySelector("html").lang;
+
+    if (lang === "ja") {
+        document.querySelector("option[value='index.html']").selected = true;
+    } else if (lang === "en") {
+        document.querySelector("option[value='index_2.html']").selected = true;
+    } else if (lang === "zh") {
+        document.querySelector("option[value='index_3.html']").selected = true;
+    }
+
+    // .select で name="select" の form部品を取得する
+    document.getElementById("form").select.onchange = function () {
+
+        // location はブラウザの現在のページに関する情報を表す。
+        location.href = document.getElementById("form").select.value;
+    }
+
+    // テキストには querySelector は CSS セレクタを指定と書いてある。
+    // あるが、タグ名を指定してもそれを取得することができる。現に上記で <html> を取得している。
+    // 多分、これは querySelectory の使い方の一つであり、タグ名で指定することも可能というだけだとは思う。
+    // 他にも属性とか、id,class セレクタとかから引っ張ってくることも可能な模様。
+}
+
+navi();
