@@ -296,4 +296,21 @@ function navi() {
     // 他にも属性とか、id,class セレクタとかから引っ張ってくることも可能な模様。
 }
 
-navi();
+// クッキーの扱い
+function ck() {
+
+    // Cookies.get はライブラリのメソッド。引数でキーを指定して、値を取得する。要はオブジェクト。
+    // クッキーを削除する Cookies.remove(); とかもあるっぽい
+    const agree = Cookies.get("cookie-agree");
+    if (agree === "yes") {
+        console.log("yes");
+    } else {
+        console.log("no");
+        document.getElementById("agreebtn").onclick = function () {
+            // expires は有効期限。整数で指定。無期限指定は不可とのこと
+            Cookies.set("cookie-agree", "yes", { expires: 7 });
+        };
+    }
+}
+
+ck();
