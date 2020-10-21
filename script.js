@@ -313,4 +313,45 @@ function ck() {
     }
 }
 
-ck();
+// 画像スライドショー 
+function changeImage() {
+
+    // .thumb で該当するクラス属性の要素を全て取得する。
+    // 返却値は NodeList で配列とは違う値らしいが、Array.from() で配列に変換可能。
+    const thumbs = document.querySelectorAll(".thumb");
+
+    // forEach メソッド。
+    thumbs.forEach(function (item, index) {
+        item.onclick = function () {
+
+            // このメソッド内の this は多分、 forEach にパラメーターとして渡したメソッドの第一引数オブジェクト
+            // HTML 上で <tag data-xxx="val"> で定義された値を読み取る。
+            // 上記の場合だと this.dataset.xxx になる。
+            console.log(this.dataset.image);
+
+            // id "bigimg" を持つ要素の src 属性を、data-image="xxx" の値で書き換える。
+            document.getElementById("bigimg").src = this.dataset.image;
+        }
+    });
+
+    const images = ["../../5-05_slide/step1/images/image1.jpg",
+        "../../5-05_slide/step1/images/image2.jpg",
+        "../../5-05_slide/step1/images/image3.jpg",
+        "../../5-05_slide/step1/images/image4.jpg",
+        "../../5-05_slide/step1/images/image5.jpg",
+    ];
+
+    let current = 0;
+
+    function chi(num) {
+        if (current + num >= 0 && current + num < images.length) {
+            current += num;
+            document.getElementById("main_image").src = images[current];
+        }
+    };
+
+    document.getElementById("prev").onclick = function () { chi(-1); };
+    document.getElementById("next").onclick = function () { chi(1); };
+}
+
+changeImage();
