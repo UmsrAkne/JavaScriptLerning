@@ -354,4 +354,26 @@ function changeImage() {
     document.getElementById("next").onclick = function () { chi(1); };
 }
 
-changeImage();
+function openCloseMenu() {
+
+    // $(document).ready(function) HTMLが読み込まれた時、引数のコールバックを実行する。
+    // この例では、読み込み時に .submenu h3 のクリックイベントにハンドラを追加する処理になっている。
+    // 更にクリックイベントのハンドラの処理は一番深い場所にある　.toggleClass() ということになる。
+
+    // ここで使用される $(element) はメソッド。予約語とかではないっぽい。
+
+    $(document).ready(function () {
+        // .submenu h3 は複数存在可能。その場合、全ての要素に対してイベントハンドラがセットされる。
+        $(".submenu h3").on("click", function () {
+
+            // テキストには $(this) は変換だと書かれている。キャストのこと？
+            // next() は HTML上の次の要素（弟要素）を取得しに行っている。
+            $(this).next().toggleClass("hidden");
+
+            // .toggleClass
+        });
+    });
+
+}
+
+openCloseMenu();
